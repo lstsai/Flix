@@ -26,10 +26,10 @@
     self.tableView.delegate=self;
     
     // Do any additional setup after loading the view.
-    [self fetchMovies];
+    [self fetchMovies];//call the method to get the movies from api
     self.refreshControl= [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];//loading refresh and call movie fetch
+    [self.tableView insertSubview:self.refreshControl atIndex:0];//move it behind the movies
 }
 - (void) fetchMovies{
     NSLog(@"Triggered");
@@ -55,9 +55,9 @@
                // TODO: Reload your table view data
                [self.tableView reloadData]; //call again bc movies might have changed
            }
-        [self.refreshControl endRefreshing];
+        [self.refreshControl endRefreshing];//stop refresh load thing
        }];
-    [task resume];
+    [task resume];//actually start the task
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.movies.count;
@@ -71,7 +71,7 @@
     NSString *posterURL= movie[@"poster_path"];
     NSString *fullURL=[baseURL stringByAppendingFormat:@"%@", posterURL];
     NSURL *fullposterURL = [NSURL URLWithString:fullURL];
-    cell.posterView.image= nil;
+    cell.posterView.image= nil;//make sure to clear so that when it is reused, the movie is not the old one
     [cell.posterView setImageWithURL:fullposterURL];
     
 //    cell.textLabel.text= movie[@"title"];//create a cell with movie title
@@ -89,7 +89,7 @@
     NSIndexPath *tappedIndex=[self.tableView indexPathForCell:tappedCell];
     NSDictionary *movie= self.movies[tappedIndex.row];
     DetailsViewController *detailViewController= [segue destinationViewController];
-    detailViewController.movie=movie;
+    detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
     NSLog(@"Leaving");
 }
 

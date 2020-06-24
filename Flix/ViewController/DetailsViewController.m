@@ -26,14 +26,14 @@
     NSString *posterURL= self.movie[@"poster_path"];
     NSString *fullPosterURLString=[baseURL stringByAppendingFormat:@"%@", posterURL];
     NSURL *fullposterURL = [NSURL URLWithString:fullPosterURLString];
-    [self.posterView setImageWithURL:fullposterURL];
+    [self.posterView setImageWithURL:fullposterURL];//pic for the big heading
     
     NSString *backdropURL= self.movie[@"backdrop_path"];
     NSString *fullBackURLString=[baseURL stringByAppendingFormat:@"%@", backdropURL];
     NSURL *fullBackURL = [NSURL URLWithString:fullBackURLString];
-    [self.backdropView setImageWithURL:fullBackURL];
+    [self.backdropView setImageWithURL:fullBackURL];//smaller movie pic
     
-    self.titleLabel.text=self.movie[@"title"];
+    self.titleLabel.text=self.movie[@"title"];//change it to the selected movie info
     self.synopLabel.text=self.movie[@"overview"];
     
     [self.titleLabel sizeToFit];
