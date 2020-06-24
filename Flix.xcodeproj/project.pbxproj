@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		DC9DA64D24A3B9F200A02570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA64C24A3B9F200A02570 /* AppDelegate.m */; };
 		DC9DA65024A3B9F200A02570 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA64F24A3B9F200A02570 /* SceneDelegate.m */; };
-		DC9DA65324A3B9F200A02570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA65224A3B9F200A02570 /* ViewController.m */; };
 		DC9DA65624A3B9F200A02570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9DA65424A3B9F200A02570 /* Main.storyboard */; };
 		DC9DA65824A3B9F300A02570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9DA65724A3B9F300A02570 /* Assets.xcassets */; };
 		DC9DA65B24A3B9F300A02570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9DA65924A3B9F300A02570 /* LaunchScreen.storyboard */; };
 		DC9DA65E24A3B9F300A02570 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA65D24A3B9F300A02570 /* main.m */; };
 		DC9DA66824A3B9F300A02570 /* FlixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA66724A3B9F300A02570 /* FlixTests.m */; };
 		DC9DA67324A3B9F300A02570 /* FlixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA67224A3B9F300A02570 /* FlixUITests.m */; };
+		DC9DA68224A3BEBB00A02570 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA68124A3BEBB00A02570 /* MoviesViewController.m */; };
+		DCAD71A924A3C9840015C680 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71A824A3C9840015C680 /* MovieCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +42,6 @@
 		DC9DA64C24A3B9F200A02570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DC9DA64E24A3B9F200A02570 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		DC9DA64F24A3B9F200A02570 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		DC9DA65124A3B9F200A02570 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DC9DA65224A3B9F200A02570 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DC9DA65524A3B9F200A02570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC9DA65724A3B9F300A02570 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC9DA65A24A3B9F300A02570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +53,10 @@
 		DC9DA66E24A3B9F300A02570 /* FlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9DA67224A3B9F300A02570 /* FlixUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlixUITests.m; sourceTree = "<group>"; };
 		DC9DA67424A3B9F300A02570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC9DA68024A3BEBB00A02570 /* MoviesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
+		DC9DA68124A3BEBB00A02570 /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
+		DCAD71A724A3C9840015C680 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
+		DCAD71A824A3C9840015C680 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +107,13 @@
 		DC9DA64A24A3B9F200A02570 /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				DC9DA68524A3BF3B00A02570 /* Models */,
+				DC9DA68424A3BF2900A02570 /* Views */,
+				DC9DA68324A3BF1200A02570 /* ViewController */,
 				DC9DA64B24A3B9F200A02570 /* AppDelegate.h */,
 				DC9DA64C24A3B9F200A02570 /* AppDelegate.m */,
 				DC9DA64E24A3B9F200A02570 /* SceneDelegate.h */,
 				DC9DA64F24A3B9F200A02570 /* SceneDelegate.m */,
-				DC9DA65124A3B9F200A02570 /* ViewController.h */,
-				DC9DA65224A3B9F200A02570 /* ViewController.m */,
 				DC9DA65424A3B9F200A02570 /* Main.storyboard */,
 				DC9DA65724A3B9F300A02570 /* Assets.xcassets */,
 				DC9DA65924A3B9F300A02570 /* LaunchScreen.storyboard */,
@@ -135,6 +139,31 @@
 				DC9DA67424A3B9F300A02570 /* Info.plist */,
 			);
 			path = FlixUITests;
+			sourceTree = "<group>";
+		};
+		DC9DA68324A3BF1200A02570 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DA68024A3BEBB00A02570 /* MoviesViewController.h */,
+				DC9DA68124A3BEBB00A02570 /* MoviesViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DC9DA68424A3BF2900A02570 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DCAD71A724A3C9840015C680 /* MovieCell.h */,
+				DCAD71A824A3C9840015C680 /* MovieCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC9DA68524A3BF3B00A02570 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC9DA65324A3B9F200A02570 /* ViewController.m in Sources */,
 				DC9DA64D24A3B9F200A02570 /* AppDelegate.m in Sources */,
+				DCAD71A924A3C9840015C680 /* MovieCell.m in Sources */,
+				DC9DA68224A3BEBB00A02570 /* MoviesViewController.m in Sources */,
 				DC9DA65E24A3B9F300A02570 /* main.m in Sources */,
 				DC9DA65024A3B9F200A02570 /* SceneDelegate.m in Sources */,
 			);
