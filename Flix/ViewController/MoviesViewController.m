@@ -39,6 +39,22 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Networking Error"
+                      message:@"There was an error loading the content"
+               preferredStyle:(UIAlertControllerStyleAlert)];
+               
+               UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                   //do nothing so when pressed, just dismiss
+               }];
+               [alert addAction:cancelAction];
+               
+               UIAlertAction *okAction=[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                   //do nothing, just dismiss
+               }];
+               [alert addAction:okAction];//add the action to the alert popup
+               [self presentViewController:alert animated:YES completion:^{
+                   // nothing happens after show
+               }];
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
