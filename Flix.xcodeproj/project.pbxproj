@@ -22,6 +22,7 @@
 		DCAD71A924A3C9840015C680 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71A824A3C9840015C680 /* MovieCell.m */; };
 		DCAD71AC24A3D3E20015C680 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71AB24A3D3E20015C680 /* DetailsViewController.m */; };
 		DCAD71AF24A3EE500015C680 /* GridMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71AE24A3EE500015C680 /* GridMoviesViewController.m */; };
+		DCAD71B224A3F4AB0015C680 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71B124A3F4AB0015C680 /* MovieCollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		DCAD71AB24A3D3E20015C680 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		DCAD71AD24A3EE500015C680 /* GridMoviesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridMoviesViewController.h; sourceTree = "<group>"; };
 		DCAD71AE24A3EE500015C680 /* GridMoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridMoviesViewController.m; sourceTree = "<group>"; };
+		DCAD71B024A3F4AB0015C680 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
+		DCAD71B124A3F4AB0015C680 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 			children = (
 				DCAD71A724A3C9840015C680 /* MovieCell.h */,
 				DCAD71A824A3C9840015C680 /* MovieCell.m */,
+				DCAD71B024A3F4AB0015C680 /* MovieCollectionCell.h */,
+				DCAD71B124A3F4AB0015C680 /* MovieCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				DCAD71A924A3C9840015C680 /* MovieCell.m in Sources */,
 				DC9DA68224A3BEBB00A02570 /* MoviesViewController.m in Sources */,
 				DCAD71AC24A3D3E20015C680 /* DetailsViewController.m in Sources */,
+				DCAD71B224A3F4AB0015C680 /* MovieCollectionCell.m in Sources */,
 				DC9DA65E24A3B9F300A02570 /* main.m in Sources */,
 				DC9DA65024A3B9F200A02570 /* SceneDelegate.m in Sources */,
 				DCAD71AF24A3EE500015C680 /* GridMoviesViewController.m in Sources */,
