@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		DC9DA67324A3B9F300A02570 /* FlixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA67224A3B9F300A02570 /* FlixUITests.m */; };
 		DC9DA68224A3BEBB00A02570 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA68124A3BEBB00A02570 /* MoviesViewController.m */; };
 		DCAD71A924A3C9840015C680 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71A824A3C9840015C680 /* MovieCell.m */; };
+		DCAD71AC24A3D3E20015C680 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71AB24A3D3E20015C680 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		DC9DA68124A3BEBB00A02570 /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		DCAD71A724A3C9840015C680 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		DCAD71A824A3C9840015C680 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
+		DCAD71AA24A3D3E20015C680 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		DCAD71AB24A3D3E20015C680 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +122,6 @@
 				6217EB6F43B5C27184641237 /* Pods-FlixTests.debug.xcconfig */,
 				D9FC960EDBAD56870CB95943 /* Pods-FlixTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -187,6 +189,8 @@
 			children = (
 				DC9DA68024A3BEBB00A02570 /* MoviesViewController.h */,
 				DC9DA68124A3BEBB00A02570 /* MoviesViewController.m */,
+				DCAD71AA24A3D3E20015C680 /* DetailsViewController.h */,
+				DCAD71AB24A3D3E20015C680 /* DetailsViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -448,6 +452,7 @@
 				DC9DA64D24A3B9F200A02570 /* AppDelegate.m in Sources */,
 				DCAD71A924A3C9840015C680 /* MovieCell.m in Sources */,
 				DC9DA68224A3BEBB00A02570 /* MoviesViewController.m in Sources */,
+				DCAD71AC24A3D3E20015C680 /* DetailsViewController.m in Sources */,
 				DC9DA65E24A3B9F300A02570 /* main.m in Sources */,
 				DC9DA65024A3B9F200A02570 /* SceneDelegate.m in Sources */,
 			);
