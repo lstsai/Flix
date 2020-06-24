@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *synopLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -35,9 +36,13 @@
     
     self.titleLabel.text=self.movie[@"title"];//change it to the selected movie info
     self.synopLabel.text=self.movie[@"overview"];
+    NSString *releaseDate= @"Released: ";
+    self.dateLabel.text= [releaseDate stringByAppendingString:self.movie[@"release_date"]];
     
-    [self.titleLabel sizeToFit];
+    
     [self.synopLabel sizeToFit];
+    [self.dateLabel sizeToFit];
+    
 }
 
 /*
