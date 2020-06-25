@@ -67,11 +67,13 @@
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-               //NSLog(@"%@", dataDictionary);
+              // NSLog(@"%@", dataDictionary);
                // TODO: Get the array of movies
               
                self.movies= dataDictionary[@"results"];
+               NSLog(@"%@", self.movies);
                self.filteredData=self.movies;
+               
                /*for(NSDictionary *movie in self.movies)
                {
                    NSLog(@"%@", movie[@"title"]);
@@ -108,17 +110,15 @@
     
     if (searchText.length != 0) {
         
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
-            return [evaluatedObject containsString:searchText];
-        }];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", searchText];
         self.filteredData = [self.movies filteredArrayUsingPredicate:predicate];
+
         
         NSLog(@"%@", self.filteredData);
         
     }
     else {
-        self.filteredData = self.movies
-        ;
+        self.filteredData = self.movies;
     }
     
     [self.tableView reloadData];
