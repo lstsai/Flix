@@ -89,7 +89,9 @@
     NSDictionary *movie= self.movies[tappedIndex.row];
     DetailsViewController *detailViewController= segue.destinationViewController;
     detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
-    NSLog(@"Leaving");
+    [self.searchBar endEditing:YES];//get rid of the keyboard
+    [self.collectionView deselectItemAtIndexPath:tappedIndex animated:YES];//deselect/unhighlight
+
 
 }
 
@@ -117,9 +119,7 @@
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", searchText];
         self.filteredData = [self.movies filteredArrayUsingPredicate:predicate];
-
-        
-        NSLog(@"%@", self.filteredData);
+        //NSLog(@"%@", self.filteredData);
         
     }
     else {

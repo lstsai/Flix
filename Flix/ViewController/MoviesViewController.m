@@ -15,8 +15,8 @@
 @property (nonatomic, strong) NSArray *movies;
 @property (nonatomic, strong) NSArray *filteredData;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) IBOutlet UIRefreshControl *refreshControl;
-@property (weak, nonatomic) IBOutlet UISearchBar *seachBar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
@@ -27,7 +27,7 @@
     [super viewDidLoad];
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
-    self.seachBar.delegate=self;
+    self.searchBar.delegate=self;
     // Do any additional setup after loading the view.
     [self fetchMovies];//call the method to get the movies from api
     
@@ -127,6 +127,7 @@
 
 
 
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -138,7 +139,9 @@
     NSDictionary *movie= self.movies[tappedIndex.row];
     DetailsViewController *detailViewController= segue.destinationViewController;
     detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
-    NSLog(@"Leaving");
+    [self.searchBar endEditing:YES];
+    [self.tableView deselectRowAtIndexPath:tappedIndex animated:YES];
+
 }
 
 @end

@@ -13,8 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backdropView;
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *synopLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UITextView *synopText;
 
 @end
 
@@ -35,12 +35,12 @@
     [self.backdropView setImageWithURL:fullBackURL];//smaller movie pic
     
     self.titleLabel.text=self.movie[@"title"];//change it to the selected movie info
-    self.synopLabel.text=self.movie[@"overview"];
+    self.synopText.text=self.movie[@"overview"];
     NSString *releaseDate= @"Released: ";
     self.dateLabel.text= [releaseDate stringByAppendingString:self.movie[@"release_date"]];
     
     
-    [self.synopLabel sizeToFit];
+    //[self.synopText sizeToFit];
     [self.dateLabel sizeToFit];
     
 }
