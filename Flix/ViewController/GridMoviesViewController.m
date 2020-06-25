@@ -11,10 +11,12 @@
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
 
-@interface GridMoviesViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface GridMoviesViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
 @property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSArray *filteredData;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -25,6 +27,7 @@
     // Do any additional setup after loading the view.
     self.collectionView.dataSource=self;
     self.collectionView.delegate=self;//since it is now inheriting the data and delegate
+    self.searchBar.delegate=self;
     [self fetchMovies];
     
     UICollectionViewFlowLayout *layout= (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;//cast to supress warning
@@ -65,6 +68,7 @@
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                // TODO: Get the array of movies
                self.movies= dataDictionary[@"results"];
+               self.filteredData=self.movies;
                // TODO: Store the movies in a property to use elsewhere
                // TODO: Reload your table view data
                [self.collectionView reloadData];//now you have data so have to reload self
@@ -83,7 +87,7 @@
     UICollectionViewCell *tappedCell=sender;//get which was tapped
     NSIndexPath *tappedIndex=[self.collectionView indexPathForCell:tappedCell];
     NSDictionary *movie= self.movies[tappedIndex.row];
-    DetailsViewController *detailViewController= [segue destinationViewController];
+    DetailsViewController *detailViewController= segue.destinationViewController;
     detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
     NSLog(@"Leaving");
 
@@ -94,7 +98,7 @@
     
     MovieCollectionCell *cell= [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
-    NSDictionary *movie= self.movies[indexPath.item];//all the movie title and pics
+    NSDictionary *movie= self.filteredData[indexPath.item];//all the movie title and pics
     NSString *baseURL= @"https://image.tmdb.org/t/p/w500";
     NSString *posterURL= movie[@"poster_path"];
     NSString *fullURL=[baseURL stringByAppendingFormat:@"%@", posterURL];
@@ -106,8 +110,23 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.movies.count;
+    return self.filteredData.count;
 }
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", searchText];
+        self.filteredData = [self.movies filteredArrayUsingPredicate:predicate];
 
+        
+        NSLog(@"%@", self.filteredData);
+        
+    }
+    else {
+        self.filteredData = self.movies;
+    }
+    [self.collectionView reloadData];
+ 
+}
 
 @end

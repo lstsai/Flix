@@ -71,7 +71,7 @@
                // TODO: Get the array of movies
               
                self.movies= dataDictionary[@"results"];
-               NSLog(@"%@", self.movies);
+               //NSLog(@"%@", self.movies);
                self.filteredData=self.movies;
                
                /*for(NSDictionary *movie in self.movies)
@@ -136,7 +136,7 @@
     UITableViewCell *tappedCell=sender;//get which was tapped
     NSIndexPath *tappedIndex=[self.tableView indexPathForCell:tappedCell];
     NSDictionary *movie= self.movies[tappedIndex.row];
-    DetailsViewController *detailViewController= [segue destinationViewController];
+    DetailsViewController *detailViewController= segue.destinationViewController;
     detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
     NSLog(@"Leaving");
 }

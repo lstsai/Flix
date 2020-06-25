@@ -147,7 +147,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="aKi-GA-umc">
                             <size key="itemSize" width="124" height="178"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
@@ -155,6 +155,12 @@
                             <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <searchBar contentMode="redraw" fixedFrame="YES" barStyle="black" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="n2C-2F-QWK">
+                                    <rect key="frame" x="0.0" y="91" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <activityIndicatorView hidden="YES" opaque="NO" alpha="0.45000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Edk-id-EqK">
                                     <rect key="frame" x="168" y="409" width="79" height="79"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -166,7 +172,7 @@
                         </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionCell" id="GeH-ju-QEN" customClass="MovieCollectionCell">
-                                <rect key="frame" x="5" y="5" width="124" height="178"/>
+                                <rect key="frame" x="5" y="55" width="124" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5cv-gI-6gz">
                                     <rect key="frame" x="0.0" y="0.0" width="124" height="178"/>
@@ -185,11 +191,16 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dbd-QN-Gnm">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Popular Movies" id="xv0-HH-pLL"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Edk-id-EqK" id="tzg-E8-Hua"/>
                         <outlet property="collectionView" destination="Tzl-2z-lw6" id="fYJ-qZ-F6u"/>
+                        <outlet property="searchBar" destination="n2C-2F-QWK" id="DTy-ij-oTw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHn-vM-li8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,7 +268,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEL-nn-NDK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="1615.8482142857142"/>
+            <point key="canvasLocation" x="100" y="1665"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="OXi-81-DIE">
+            <objects>
+                <viewController id="GUF-Ni-pkb" customClass="WebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uhf-8s-8pB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bvb-ff-e4b"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OMx-us-wrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1241" y="1634"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="gKE-Qe-r16">
@@ -285,7 +311,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gxA-b3-h6j"/>
+        <segue reference="etZ-bA-BbY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>

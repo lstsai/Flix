@@ -10,6 +10,7 @@
 		670B48250CA721958767FB4C /* Pods_Flix_FlixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACAAF58F51C7FB0E19CB5A6F /* Pods_Flix_FlixUITests.framework */; };
 		96A6B3AC30CF79532B01185C /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91EB72DF390EF4CAA53952FF /* Pods_Flix.framework */; };
 		CDC91FC2F25CF473776BCF31 /* Pods_FlixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEEAA436F37D32F020424FA /* Pods_FlixTests.framework */; };
+		DC42C2AE24A55394000D1A31 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC42C2AD24A55394000D1A31 /* WebViewController.m */; };
 		DC9DA64D24A3B9F200A02570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA64C24A3B9F200A02570 /* AppDelegate.m */; };
 		DC9DA65024A3B9F200A02570 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA64F24A3B9F200A02570 /* SceneDelegate.m */; };
 		DC9DA65624A3B9F200A02570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9DA65424A3B9F200A02570 /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 		ACAAF58F51C7FB0E19CB5A6F /* Pods_Flix_FlixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flix_FlixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A680870CAA7E3EEC1D4A54 /* Pods-Flix-FlixUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix-FlixUITests.debug.xcconfig"; path = "Target Support Files/Pods-Flix-FlixUITests/Pods-Flix-FlixUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9FC960EDBAD56870CB95943 /* Pods-FlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixTests.release.xcconfig"; path = "Target Support Files/Pods-FlixTests/Pods-FlixTests.release.xcconfig"; sourceTree = "<group>"; };
+		DC42C2AC24A55394000D1A31 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		DC42C2AD24A55394000D1A31 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		DC9DA64824A3B9F200A02570 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9DA64B24A3B9F200A02570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DC9DA64C24A3B9F200A02570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				DCAD71AB24A3D3E20015C680 /* DetailsViewController.m */,
 				DCAD71AD24A3EE500015C680 /* GridMoviesViewController.h */,
 				DCAD71AE24A3EE500015C680 /* GridMoviesViewController.m */,
+				DC42C2AC24A55394000D1A31 /* WebViewController.h */,
+				DC42C2AD24A55394000D1A31 /* WebViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				DCAD71A924A3C9840015C680 /* MovieCell.m in Sources */,
 				DC9DA68224A3BEBB00A02570 /* MoviesViewController.m in Sources */,
 				DCAD71AC24A3D3E20015C680 /* DetailsViewController.m in Sources */,
+				DC42C2AE24A55394000D1A31 /* WebViewController.m in Sources */,
 				DCAD71B224A3F4AB0015C680 /* MovieCollectionCell.m in Sources */,
 				DC9DA65E24A3B9F300A02570 /* main.m in Sources */,
 				DC9DA65024A3B9F200A02570 /* SceneDelegate.m in Sources */,
