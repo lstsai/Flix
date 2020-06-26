@@ -211,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="1992.753623188406" y="943.52678571428567"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Details-->
         <scene sceneID="1Qw-X7-dZp">
             <objects>
                 <viewController id="VTr-26-Gyb" customClass="DetailsViewController" sceneMemberID="viewController">
@@ -219,7 +219,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6NU-YO-92Z">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6NU-YO-92Z">
                                 <rect key="frame" x="0.0" y="-88" width="414" height="449"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -266,7 +266,7 @@
                         <viewLayoutGuide key="contentLayoutGuide" id="Qyi-YG-IG0"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="ovI-PZ-Ldj"/>
                     </scrollView>
-                    <navigationItem key="navigationItem" id="Gga-0N-2MY"/>
+                    <navigationItem key="navigationItem" title="Details" id="Gga-0N-2MY"/>
                     <connections>
                         <outlet property="backdropView" destination="6NU-YO-92Z" id="P4R-QM-vwz"/>
                         <outlet property="dateLabel" destination="YXy-ok-DyR" id="Y7Z-Zb-1j5"/>
@@ -284,21 +284,47 @@
             </objects>
             <point key="canvasLocation" x="100.00000000000001" y="1664.7321428571429"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Trailer-->
         <scene sceneID="OXi-81-DIE">
             <objects>
                 <viewController id="GUF-Ni-pkb" customClass="WebViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uhf-8s-8pB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gij-6p-oGp">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading Trailer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj3-zJ-m2r">
+                                <rect key="frame" x="150" y="360" width="114" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Md4-3S-NbW">
+                                <rect key="frame" x="197" y="416" width="20" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="bvb-ff-e4b"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Y5c-P3-gpK"/>
+                    <navigationItem key="navigationItem" title="Trailer" id="Y5c-P3-gpK"/>
+                    <connections>
+                        <outlet property="trailerView" destination="gij-6p-oGp" id="2GY-PY-gVA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMx-us-wrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="1665"/>
+            <point key="canvasLocation" x="1208.6956521739132" y="1664.7321428571429"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="gKE-Qe-r16">

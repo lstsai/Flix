@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WebViewController : UIViewController
+@property (nonatomic, strong) NSDictionary *movie;
 
 @end
 
