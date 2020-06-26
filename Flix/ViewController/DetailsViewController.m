@@ -44,15 +44,8 @@
     
     
     //[self.synopText sizeToFit];
-    [self.dateLabel sizeToFit];
-    [self loadRecommended];
-    
+    [self.dateLabel sizeToFit];    
 }
-- (void) loadRecommended{
-    NSString *id= self.movie[@"id"];
-    
-}
-
 
 #pragma mark - Navigation
 
