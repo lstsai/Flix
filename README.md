@@ -43,10 +43,10 @@ Stories 1, 2, 3, 4, 5, 7:
 <img src='http://g.recordit.co/1gSc8DKZc2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Stories 4, 6:
-<img src='https://recordit.co/R5towMaaOh' title='Video Walkthrough 2' width='' alt='Video Walkthrough 2' />
+<img src='https://recordit.co/R5towMaaOh.gif' title='Video Walkthrough 2' width='' alt='Video Walkthrough 2' />
 
 Optional Stories: Search bar, Details view from collection view, Trailer from poster
-<img src='https://recordit.co/gdZ9KZhBab' title='Video Walkthrough 3' width='' alt='Video Walkthrough 3' />
+<img src='https://recordit.co/gdZ9KZhBab.gif' title='Video Walkthrough 3' width='' alt='Video Walkthrough 3' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
