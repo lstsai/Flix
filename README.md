@@ -31,6 +31,7 @@ The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
 - [ x] User can view the trailer by tapping on the poster in the details section
+- [x] User can go to 'Rating and Recommendation' page from selected movie 
 
 
 
