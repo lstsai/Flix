@@ -92,19 +92,46 @@
     return self.filteredData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MovieCell *cell= [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];//use the cell that we created
+    MovieCell *weakCell= [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];//use the cell that we created
     NSDictionary *movie= self.filteredData[indexPath.row];//all the movie titles
-    cell.titleLabel.text=movie[@"title"];//change the title for each movie
-    cell.synopLabel.text=movie[@"overview"];
+    weakCell.titleLabel.text=movie[@"title"];//change the title for each movie
+    weakCell.synopLabel.text=movie[@"overview"];
     NSString *baseURL= @"https://image.tmdb.org/t/p/w500";
     NSString *posterURL= movie[@"poster_path"];
     NSString *fullURL=[baseURL stringByAppendingFormat:@"%@", posterURL];
     NSURL *fullposterURL = [NSURL URLWithString:fullURL];
-    cell.posterView.image= nil;//make sure to clear so that when it is reused, the movie is not the old one
-    [cell.posterView setImageWithURL:fullposterURL];
+    NSURLRequest *posterrequest=[NSURLRequest requestWithURL:fullposterURL];
+    weakCell.posterView.image= nil;//make sure to clear so that when it is reused, the movie is not the old one
+    [weakCell.posterView setImageWithURLRequest:posterrequest placeholderImage:nil
+    success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
+        
+        // imageResponse will be nil if the image is cached
+        if (imageResponse) {
+            NSLog(@"Image was NOT cached, fade in image");
+            weakCell.posterView.alpha = 0.0;
+            weakCell.posterView.image = image;
+            weakCell.titleLabel.alpha=0.0;
+            weakCell.synopLabel.alpha=0.0;
+            
+            //Animate UIImageView back to alpha 1 over 0.3sec
+            [UIView animateWithDuration:0.3 animations:^{
+                weakCell.posterView.alpha = 1.0;
+                weakCell.titleLabel.alpha=1.0;
+                weakCell.synopLabel.alpha=1.0;
+            }];
+        }
+        else {
+            NSLog(@"Image was cached so just update the image");
+            weakCell.posterView.image = image;
+        }
+    }
+    failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
+        NSLog(@"Failed to load image");
+// do something for the failure condition
+    }];
     
 //    cell.textLabel.text= movie[@"title"];//create a cell with movie title
-    return cell;
+    return weakCell;
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     

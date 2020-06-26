@@ -2,7 +2,7 @@
 
 **Flix** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **7** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
@@ -39,13 +39,15 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-Stories 1, 2, 3, 4, 5, 7:
+### Stories 1, 2, 3, 4, 5, 7:
+
 <img src='http://g.recordit.co/1gSc8DKZc2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-Stories 4, 6:
+### Stories 4, 6:
+
 <img src='https://recordit.co/R5towMaaOh.gif' title='Video Walkthrough 2' width='' alt='Video Walkthrough 2' />
 
-Optional Stories: Search bar, Details view from collection view, Trailer from poster
+### Optional Stories: Search bar, Details view from collection view, Trailer from poster
 <img src='https://recordit.co/gdZ9KZhBab.gif' title='Video Walkthrough 3' width='' alt='Video Walkthrough 3' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
@@ -53,6 +55,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+1. Learning how to extract data from JSON files, I was stuck on an error because I was treating the data like dictionary but it was actually an array containing one dictionary as it's element.
+2. Learning about predicates to filter the data
+3. Learning that not all views can be tapped on to be a segue, need tap gesture recognizer
+
 
 ## Credits
 

@@ -28,6 +28,7 @@
     self.collectionView.dataSource=self;
     self.collectionView.delegate=self;//since it is now inheriting the data and delegate
     self.searchBar.delegate=self;
+
     [self fetchMovies];
     
     UICollectionViewFlowLayout *layout= (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;//cast to supress warning
@@ -37,6 +38,7 @@
     CGFloat postersPerLine=3;
     CGFloat itemWidth=(self.collectionView.frame.size.width-layout.minimumInteritemSpacing*(postersPerLine-1)-10)/postersPerLine;//scale it to be the size you want per line,take into account interitem spacing and the margins of screen
     layout.itemSize=CGSizeMake(itemWidth, 1.5*itemWidth);
+    
 }
 - (void) fetchMovies{
     [self.activityIndicator startAnimating];
@@ -98,17 +100,44 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    MovieCollectionCell *cell= [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
+    __weak MovieCollectionCell *weakCell= [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
     NSDictionary *movie= self.filteredData[indexPath.item];//all the movie title and pics
     NSString *baseURL= @"https://image.tmdb.org/t/p/w500";
     NSString *posterURL= movie[@"poster_path"];
     NSString *fullURL=[baseURL stringByAppendingFormat:@"%@", posterURL];
     NSURL *fullposterURL = [NSURL URLWithString:fullURL];
-    cell.posterView.image= nil;//make sure to clear so that when it is reused, the movie is not the old one
-    [cell.posterView setImageWithURL:fullposterURL];
+    NSURLRequest *posterrequest = [NSURLRequest requestWithURL:fullposterURL];
+
+    weakCell.posterView.image= nil;//make sure to clear so that when it is reused, the movie is not the old one
+    [weakCell.posterView setImageWithURLRequest:posterrequest placeholderImage:nil
+                                    success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
+                                        
+                                        // imageResponse will be nil if the image is cached
+                                        if (imageResponse) {
+                                            NSLog(@"Image was NOT cached, fade in image");
+                                            weakCell.posterView.alpha = 0.0;
+                                            weakCell.posterView.image = image;
+                                            
+                                            //Animate UIImageView back to alpha 1 over 0.3sec
+                                            [UIView animateWithDuration:0.3 animations:^{
+                                                weakCell.posterView.alpha = 1.0;
+                                            }];
+                                        }
+                                        else {
+                                            NSLog(@"Image was cached so just update the image");
+                                            weakCell.posterView.image = image;
+                                        }
+                                    }
+                                    failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
+                                        // do something for the failure condition
+                                    }];
     
-    return cell;
+    
+    
+    
+    
+    return weakCell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
