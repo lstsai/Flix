@@ -9,6 +9,7 @@
 #import "RRViewController.h"
 #import "MovieCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 @interface RRViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *movieTitle;
@@ -125,15 +126,21 @@
     
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    UITableViewCell *tappedCell=sender;//get which was tapped
+    NSIndexPath *tappedIndex=[self.tableView indexPathForCell:tappedCell];
+    NSDictionary *movie= self.recMovies[tappedIndex.row];
+    DetailsViewController *detailViewController= segue.destinationViewController;
+    detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
+    [self.tableView deselectRowAtIndexPath:tappedIndex animated:YES];
 }
-*/
+
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MovieCell *weakCell= [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];//use the cell that we created
