@@ -14,7 +14,7 @@ The following **required** functionality is complete:
 - [x ] User sees a loading state while waiting for the movies API.
 - [x ] User can pull to refresh the movie list.
 - [x ] User sees an error message when there's a networking error.
-- [ x] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
+- [x] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
 
 The following **optional** features are implemented:
 
@@ -39,8 +39,14 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+Stories 1, 2, 3, 4, 5, 7:
+<img src='http://g.recordit.co/1gSc8DKZc2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Stories 4, 6:
+<img src='https://recordit.co/R5towMaaOh' title='Video Walkthrough 2' width='' alt='Video Walkthrough 2' />
+
+Optional Stories: Search bar, Details view from collection view, Trailer from poster
+<img src='https://recordit.co/gdZ9KZhBab' title='Video Walkthrough 3' width='' alt='Video Walkthrough 3' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

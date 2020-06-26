@@ -86,7 +86,7 @@
     // Pass the selected object to the new view controller.
     UICollectionViewCell *tappedCell=sender;//get which was tapped
     NSIndexPath *tappedIndex=[self.collectionView indexPathForCell:tappedCell];
-    NSDictionary *movie= self.movies[tappedIndex.row];
+    NSDictionary *movie= self.filteredData[tappedIndex.row];
     DetailsViewController *detailViewController= segue.destinationViewController;
     detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
     [self.searchBar endEditing:YES];//get rid of the keyboard

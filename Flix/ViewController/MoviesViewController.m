@@ -113,7 +113,6 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", searchText];
         self.filteredData = [self.movies filteredArrayUsingPredicate:predicate];
 
-        
         NSLog(@"%@", self.filteredData);
         
     }
@@ -136,7 +135,7 @@
     // Pass the selected object to the new view controller.
     UITableViewCell *tappedCell=sender;//get which was tapped
     NSIndexPath *tappedIndex=[self.tableView indexPathForCell:tappedCell];
-    NSDictionary *movie= self.movies[tappedIndex.row];
+    NSDictionary *movie= self.filteredData[tappedIndex.row];
     DetailsViewController *detailViewController= segue.destinationViewController;
     detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
     [self.searchBar endEditing:YES];
