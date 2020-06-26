@@ -9,6 +9,7 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "WebViewController.h"
+#import "RRViewController.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backdropView;
@@ -28,21 +29,27 @@
     NSString *posterURL= self.movie[@"poster_path"];
     NSString *fullPosterURLString=[baseURL stringByAppendingFormat:@"%@", posterURL];
     NSURL *fullposterURL = [NSURL URLWithString:fullPosterURLString];
-    [self.posterView setImageWithURL:fullposterURL];//pic for the big heading
+    [self.posterView setImageWithURL:fullposterURL];//pic for the smaller
     
     NSString *backdropURL= self.movie[@"backdrop_path"];
     NSString *fullBackURLString=[baseURL stringByAppendingFormat:@"%@", backdropURL];
     NSURL *fullBackURL = [NSURL URLWithString:fullBackURLString];
-    [self.backdropView setImageWithURL:fullBackURL];//smaller movie pic
+    [self.backdropView setImageWithURL:fullBackURL];//bigger movie pic
     
     self.titleLabel.text=self.movie[@"title"];//change it to the selected movie info
     self.synopText.text=self.movie[@"overview"];
+    
     NSString *releaseDate= @"Released: ";
     self.dateLabel.text= [releaseDate stringByAppendingString:self.movie[@"release_date"]];
     
     
     //[self.synopText sizeToFit];
     [self.dateLabel sizeToFit];
+    [self loadRecommended];
+    
+}
+- (void) loadRecommended{
+    NSString *id= self.movie[@"id"];
     
 }
 
@@ -53,8 +60,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    WebViewController *webVC= segue.destinationViewController;
-    webVC.movie=self.movie;
+    if([segue.identifier isEqualToString:@"trailerSegue"])
+    {
+        WebViewController *webVC= segue.destinationViewController;
+        webVC.movie=self.movie;
+    }
+    else if([segue.identifier isEqualToString:@"rrSegue"])
+    {
+        RRViewController *rrVC=segue.destinationViewController;
+        rrVC.movie=self.movie;
+    }
+    
 }
 
 
