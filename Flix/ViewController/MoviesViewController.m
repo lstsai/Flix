@@ -28,6 +28,7 @@
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.searchBar.delegate=self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     // Do any additional setup after loading the view.
     [self fetchMovies];//call the method to get the movies from api
     
