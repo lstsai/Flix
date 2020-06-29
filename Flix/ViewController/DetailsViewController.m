@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UITextView *synopText;
+@property (weak, nonatomic) IBOutlet UILabel *synopText;
 
 @end
 
@@ -43,7 +43,7 @@
     self.dateLabel.text= [releaseDate stringByAppendingString:self.movie[@"release_date"]];
     
     
-    //[self.synopText sizeToFit];
+    [self.synopText sizeToFit];
     [self.dateLabel sizeToFit];    
 }
 
