@@ -26,6 +26,8 @@
 		DCAD71AF24A3EE500015C680 /* GridMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71AE24A3EE500015C680 /* GridMoviesViewController.m */; };
 		DCAD71B224A3F4AB0015C680 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD71B124A3F4AB0015C680 /* MovieCollectionCell.m */; };
 		DCBBD4E324A6724C00A36C52 /* RRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBBD4E224A6724C00A36C52 /* RRViewController.m */; };
+		DCFA4CBE24ACE92B005A3A64 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFA4CBD24ACE92B005A3A64 /* Movie.m */; };
+		DCFA4CC124ACF0E3005A3A64 /* MovieApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFA4CC024ACF0E3005A3A64 /* MovieApiManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,10 @@
 		DCAD71B124A3F4AB0015C680 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
 		DCBBD4E124A6724C00A36C52 /* RRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRViewController.h; sourceTree = "<group>"; };
 		DCBBD4E224A6724C00A36C52 /* RRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRViewController.m; sourceTree = "<group>"; };
+		DCFA4CBC24ACE92B005A3A64 /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		DCFA4CBD24ACE92B005A3A64 /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		DCFA4CBF24ACF0E3005A3A64 /* MovieApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieApiManager.h; sourceTree = "<group>"; };
+		DCFA4CC024ACF0E3005A3A64 /* MovieApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieApiManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,10 @@
 		DC9DA68524A3BF3B00A02570 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DCFA4CBC24ACE92B005A3A64 /* Movie.h */,
+				DCFA4CBD24ACE92B005A3A64 /* Movie.m */,
+				DCFA4CBF24ACF0E3005A3A64 /* MovieApiManager.h */,
+				DCFA4CC024ACF0E3005A3A64 /* MovieApiManager.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,10 +490,12 @@
 				DCBBD4E324A6724C00A36C52 /* RRViewController.m in Sources */,
 				DC9DA68224A3BEBB00A02570 /* MoviesViewController.m in Sources */,
 				DCAD71AC24A3D3E20015C680 /* DetailsViewController.m in Sources */,
+				DCFA4CBE24ACE92B005A3A64 /* Movie.m in Sources */,
 				DC42C2AE24A55394000D1A31 /* WebViewController.m in Sources */,
 				DCAD71B224A3F4AB0015C680 /* MovieCollectionCell.m in Sources */,
 				DC9DA65E24A3B9F300A02570 /* main.m in Sources */,
 				DC9DA65024A3B9F200A02570 /* SceneDelegate.m in Sources */,
+				DCFA4CC124ACF0E3005A3A64 /* MovieApiManager.m in Sources */,
 				DCAD71AF24A3EE500015C680 /* GridMoviesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

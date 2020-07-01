@@ -10,6 +10,8 @@
 #import "MovieCell.h"
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "Movie.h"
+#import "MovieApiManager.h"
 
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) NSArray *movies;
@@ -18,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) IBOutlet UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) NSMutableArray *moviesArray;
+@property (nonatomic, strong) NSMutableArray *filteredArray;
+
 
 @end
 
@@ -39,6 +44,17 @@
 - (void) fetchMovies{
     
     [self.activityIndicator startAnimating];//***start the activity indicator
+    
+    
+    MovieApiManager *manager = [MovieApiManager new];
+    [manager fetchNowPlaying:^(NSArray *movies, NSError *error) {
+        self.movies = movies;
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];//stop refresh load thing
+
+    }];
+    /*
+    
     
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
@@ -70,38 +86,44 @@
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
               // NSLog(@"%@", dataDictionary);
                // TODO: Get the array of movies
-              
+              NSArray *dictionaries = dataDictionary[@"results"];
+              for (NSDictionary *dictionary in dictionaries) {
+                  Movie *movie = [[Movie alloc] initWithDictionary:dictionary];// Call the Movie initializer here
+
+                  [self.moviesArray addObject:movie];
+              }
+               self.filteredArray= self.moviesArray;
                self.movies= dataDictionary[@"results"];
                //NSLog(@"%@", self.movies);
                self.filteredData=self.movies;
-               
+        */
+    
                /*for(NSDictionary *movie in self.movies)
                {
                    NSLog(@"%@", movie[@"title"]);
                    
                }*/
+
                // TODO: Store the movies in a property to use elsewhere
                // TODO: Reload your table view data
-               [self.tableView reloadData]; //call again bc movies might have changed
-           }
+               //[self.tableView reloadData]; //call again bc movies might have changed
+           //}
         
-        [self.refreshControl endRefreshing];//stop refresh load thing
-       }];
-    [task resume];//actually start the task
+        //[self.refreshControl endRefreshing];//stop refresh load thing
+       //}];
+    //[task resume];//actually start the task
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.filteredData.count;
+    return self.filteredArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    /*
     MovieCell *weakCell= [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];//use the cell that we created
-    NSDictionary *movie= self.filteredData[indexPath.row];//all the movie titles
-    weakCell.titleLabel.text=movie[@"title"];//change the title for each movie
-    weakCell.synopLabel.text=movie[@"overview"];
-    NSString *baseURL= @"https://image.tmdb.org/t/p/w500";
-    NSString *posterURL= movie[@"poster_path"];
-    NSString *fullURL=[baseURL stringByAppendingFormat:@"%@", posterURL];
-    NSURL *fullposterURL = [NSURL URLWithString:fullURL];
-    NSURLRequest *posterrequest=[NSURLRequest requestWithURL:fullposterURL];
+    Movie* currMovie= self.filteredArray[indexPath.row];
+    
+    weakCell.titleLabel.text=currMovie.title;//change the title for each movie
+    weakCell.synopLabel.text=currMovie.overview;
+    NSURLRequest *posterrequest=[NSURLRequest requestWithURL:currMovie.posterUrl];
     weakCell.posterView.image= nil;//make sure to clear so that when it is reused, the movie is not the old one
     [weakCell.posterView setImageWithURLRequest:posterrequest placeholderImage:nil
     success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
@@ -133,19 +155,26 @@
     
 //    cell.textLabel.text= movie[@"title"];//create a cell with movie title
     return weakCell;
+    */
+
+    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+
+    cell.movie = self.movies[indexPath.row];
+    
+    return cell;
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length != 0) {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", searchText];
-        self.filteredData = [self.movies filteredArrayUsingPredicate:predicate];
-
-        NSLog(@"%@", self.filteredData);
+        NSArray* arrayFiltered = [self.moviesArray filteredArrayUsingPredicate:predicate];
+        self.filteredArray= [arrayFiltered mutableCopy];
+        NSLog(@"%@", self.filteredArray);
         
     }
     else {
-        self.filteredData = self.movies;
+        self.filteredArray = self.moviesArray;
     }
     
     [self.tableView reloadData];
@@ -163,9 +192,10 @@
     // Pass the selected object to the new view controller.
     UITableViewCell *tappedCell=sender;//get which was tapped
     NSIndexPath *tappedIndex=[self.tableView indexPathForCell:tappedCell];
-    NSDictionary *movie= self.filteredData[tappedIndex.row];
+    Movie *movie= self.filteredArray[tappedIndex.row];
     DetailsViewController *detailViewController= segue.destinationViewController;
     detailViewController.movie=movie;//set the tapped movie for the details controller to know whats up
+    detailViewController.movieD=self.filteredData[tappedIndex.row];
     [self.searchBar endEditing:YES];
     [self.tableView deselectRowAtIndexPath:tappedIndex animated:YES];
 
